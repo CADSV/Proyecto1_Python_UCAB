@@ -2,20 +2,22 @@
 import time #Para trabajar con el tiempo
 
 #Funcion encargada de leer la data del archivo
-def get_file_data(context: dict, file) -> dict:
-    #Aqui se le hace a cada participante un elemento de la lista de participantes, con toda su correspondiente data
-    context['participants'] = list([
-    {'id': data[0], 'first_last_name': data[1], 'second_last_name': data[2], 'name': data[3], 'initial_name_letter': data[4], 
-    'sex': data[5], 'age': int(data[6]), 'time': time(hour=int(data[7]), minute=int(data[8]), second=int(data[9]))}
-    for data in [line.split(',') for line in file.readlines()]])
+def get_file_data(context: dict, file_name: str) -> dict:
 
-    context['participants'].sort(key=lambda participant: participant['time']) #Organizamos de una vez a los participantes por tiempo
+    with open(file_name,'r') as file:
+        #Aqui se le hace a cada participante un elemento de la lista de participantes, con toda su correspondiente data
+        context['participants'] = list([
+        {'id': data[0], 'first_last_name': data[1], 'second_last_name': data[2], 'name': data[3], 'initial_name_letter': data[4], 
+        'sex': data[5], 'age': int(data[6]), 'time': time(hour=int(data[7]), minute=int(data[8]), second=int(data[9]))}
+        for data in [line.split(',') for line in file.readlines()]])
 
-    #Funciones para extraer los grupos de datos especificos
-    context = get_juniors(context)
-    context = get_seniors(context)
-    context = get_masters(context)
-    context = get_participants_by_sex(context)
+        context['participants'].sort(key=lambda participant: participant['time']) #Organizamos de una vez a los participantes por tiempo
+
+        #Funciones para extraer los grupos de datos especificos
+        context = get_juniors(context)
+        context = get_seniors(context)
+        context = get_masters(context)
+        context = get_participants_by_sex(context)
 
     
     return context

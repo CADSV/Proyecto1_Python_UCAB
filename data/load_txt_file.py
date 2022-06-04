@@ -37,7 +37,8 @@ def load_txt_file(context: dict, isCustom: bool) -> dict:
         file = open(file_name, 'r')
 
         if(validate_file(file)):
-            get_file_data(context, file) #Para obtener toda la data
+            file.close()
+            get_file_data(context, file_name) #Para obtener toda la data
 
           
     
