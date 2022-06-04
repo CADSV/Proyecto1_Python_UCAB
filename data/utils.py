@@ -3,14 +3,14 @@ import time #Para trabajar con el tiempo en la barra de cargado
 
 #Funcion obtenida en StackOverflow, que ayuda a determinar si un archivo es de texto plano o no
 def is_text_plain_file(filepath: str) -> bool:
-    """
+    '''
     Check if the file is a text plain file.
     see: https://stackoverflow.com/a/7392391/19043850
     Params:
         filename (str): The path of the file.
     Returns:
         bool: True if the file is a text plain file, False otherwise.
-    """
+    '''
 
     textchars = bytearray(
         {7, 8, 9, 10, 12, 13, 27} |
@@ -22,14 +22,14 @@ def is_text_plain_file(filepath: str) -> bool:
 
 #Funcion para validar el archivo a leer
 def validate_file(file) -> bool:
-    if (file.read() == ""):
-        raise EmptyFile("¡ERROR! El archivo está vacío, no hay nada que leer :(")
+    if (file.read() == ''):
+        raise EmptyFile('¡ERROR! El archivo está vacío, no hay nada que leer :(')
 
     file.seek(0,0) #Como se leyó el archivo, se vuelve a poner al inicio el puntero
 
     # Se verifica que el archivo tenga los 10 campos que indica el ejercicio
-    if (len(list(filter(lambda line: line.count(",") != 9, file.readlines()))) != 0):
-        raise InvalidData("¡ERROR! Los participantes no cuentan con todo los datos necesarios :(")
+    if (len(list(filter(lambda line: line.count(',') != 9, file.readlines()))) != 0):
+        raise InvalidData('¡ERROR! Los participantes no cuentan con todo los datos necesarios :(')
    
     file.seek(0,0) #Como se leyó el archivo, se vuelve a poner al inicio el puntero
 
