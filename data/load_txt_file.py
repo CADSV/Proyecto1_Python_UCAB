@@ -1,9 +1,23 @@
+#Importaciones de librerias necesarias
 from exceptions.load_file_exceptions import (
+    EmptyFile, #Excepcion por si el archivo esta vacio
     NotATextFile, #Excepcion de archivo no de texto
+    InvalidData, #Excepcion para lectura de data invalida
 )
 
-from data.utils import is_text_plain_file #Para validar si es o no un archivo de texto
-from views.utils import clear_screen #Para limpiar la pantalla
+from data.utils import (
+    is_text_plain_file, #Para validar si es o no un archivo de texto
+    load_bar #Para mostrar la barra de cargado
+) 
+from views.utils import (
+    clear_screen, #Para limpiar la pantalla
+    validate_file #Para validar el archivo
+)
+
+import time #Para trabajar con el tiempo
+
+from controllers.file_functions import get_file_data #Funcion para cargar la data
+
 
 # Funcion encargada de leer el archivo de texto
 def load_txt_file(context: dict, isCustom: bool) -> dict:
@@ -24,15 +38,31 @@ def load_txt_file(context: dict, isCustom: bool) -> dict:
         # Abrir el archivo
         file = open(file_name, "r")
 
-        # Leer el archivo
+        if(validate_file(file)):
+            get_file_data(context, file) #Para obtener toda la data
+            
     
-    except NotATextFile as e:
+    except (NotATextFile, InvalidData, EmptyFile) as e:
         print(f'\n\n{e}\n')
+        input("Por favor presione cualquier tecla para continuar...")
+    
+    except FileNotFoundError:
+        print("\n¡ERORR! Lo sentimos, el archivo no ha sido encontrado :(\n")
+        input("Presione una tecla para continuar")
+    
+    except:
+        print("\n¡ERORR! Lo sentimos, no se pudo leer el archivo :(\n")
         input("Por favor presione cualquier tecla para continuar...")
 
     
     else:
-        print("\nExitos\n")
+        clear_screen()
+        print("\n\tCARGANDO ARCHIVO...   \n\t", end="")
+        for i in range(101):
+            load_bar(i)
+            time.sleep(0.01)
+        print("")
+        print(f"\n\n¡BIEN! El archivo {file_name} ha sido leido con éxito\n")
         input("Por favor presione cualquier tecla para continuar...")
 
 
