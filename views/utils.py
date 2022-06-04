@@ -5,7 +5,7 @@ import sys
 # Funcion encargada de mostrar todos los menus de la aplicacion
 def create_menu(menu_options: list[str], title: str):
     print("\n")
-    print(f'            {title}')
+    print(f'{title}')
     for i in range(20):
         print("**", end="")
     print("\n")

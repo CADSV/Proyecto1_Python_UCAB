@@ -1,12 +1,11 @@
 # Importacions de librerias necesarias
 from views.utils import (
-    call_exit,
     create_menu, #Para crear el menu
     clear_screen, #Para limpiar la pantalla
     call_exit, #Para salir del programa
     )
 from exceptions.menu_exceptions import InexistentMenuOptionError #Excepcion de opcion invalida en el menu
-# from views.files import file_menu
+from views.file_menu import file_menu #Para llamar al menu de archivos
 # from views.actions import actions_menu
 
 # Funcion encargada de mostrar el menu principal
@@ -23,12 +22,12 @@ def main():
             print('Bienvenidos al primer proyecto de Python')
             print('Desarrollado por: Calos Doffiny S-V.  CI: V-27.814.707')
 
-            create_menu(main_menu_options, "MENÚ PRINCIPAL")
+            create_menu(main_menu_options, "            MENÚ PRINCIPAL")
 
             selected_option = int(input("Por favor seleccione una opción: "))
 
             if (selected_option == 1):
-                # file_menu(context)
+                file_menu(context)
                 print('111')
 
             elif (selected_option == 2):
