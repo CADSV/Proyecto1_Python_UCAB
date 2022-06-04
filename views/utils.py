@@ -16,3 +16,13 @@ def create_menu(menu_options: list[str], title: str):
 # Funcion encargada de limpiar la pantalla
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear") #Para limpiar la pantalla tanto en windows como en linux
+
+
+# Funcion para despedirse del usuario y salir del sistema
+def call_exit():
+    clear_screen()
+    print("\n")
+    print("Espero que haya sido de su agrado, y no olvide armar su cubo rubik. Hasta pronto :)")
+    print("\n")
+    input("Por favor presione cualquier tecla para salir...")
+    sys.exit()
