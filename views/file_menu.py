@@ -6,18 +6,19 @@ from views.utils import (
     call_exit, #Para salir del programa
     )
 from exceptions.menu_exceptions import InexistentMenuOptionError #Excepcion de opcion invalida en el menu
+from data.load_txt_file import load_txt_file #Para cargar el archivo
 
 
 # Funcion encargada de mostrar el menu de los archivos
 def file_menu(context: dict) -> dict:
     selected_option = None
-    main_menu_options = ["Cargar un archivo", "Volver al Menú Principal", "Salir del Programa"]
+    main_menu_options = ["Cargar un archivo", "Volver al Menú Principal", "Salir del Programa"] #Lista de las opciones
 
     while(True):
         try: 
             clear_screen()
 
-            create_menu(main_menu_options, "            MENÚ DE ARCHIVOS")
+            create_menu(main_menu_options, "            MENÚ DE ARCHIVOS") #Creamos el menu
 
             selected_option = int(input("Por favor seleccione una opción: "))
 
@@ -47,7 +48,7 @@ def file_menu(context: dict) -> dict:
 # Funcion encargada de mostrar el menu de cargar un archivo
 def load_file_menu(context: dict) -> dict:
     selected_option = None
-    main_menu_options = ["Cargar el archivo por defecto competencia.tx", "Cargar un archivo propio", "Volver al Menú de Archivos", "Salir del Programa"]
+    main_menu_options = ["Cargar el archivo por defecto competencia.txt", "Cargar un archivo propio", "Volver al Menú de Archivos", "Salir del Programa"]
 
     while(True):
         try: 
@@ -58,12 +59,10 @@ def load_file_menu(context: dict) -> dict:
             selected_option = int(input("Por favor seleccione una opción: "))
 
             if (selected_option == 1):
-                # load_file(context)
-                print('111')
+                load_txt_file(context, False)
 
             elif (selected_option == 2):
-                # load_file(context)
-                print('222')
+                load_txt_file(context, True)
 
             elif (selected_option == 3):
                 break
