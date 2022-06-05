@@ -80,7 +80,32 @@ def winners_by_age_group(context: dict) -> dict:
             str(options[i[1]]['age']).center(6), str(options[i[1]]['total_time'].strftime('%H:%M:%S')).center(10)))
         print('\t------------------------------------------------------------------------------------------')
 
+    return context
+
+
+#Funcion que imprime la tabla con los ganadores por edad
+def winners_by_gender(context: dict) -> dict:
+
+    clear_screen()
     
+    men = context['men'][0] #Se obtiene la data del participante hombre ganador
+    women = context['women'][0] #Se obtiene la data de la participante mujer ganadora
+
+    options = {'Mujeres': women, 'Hombres': men} #Diccionario con los ganadores por sexo
+
+    print('\n\t{:85}'.format('GANADORES POR SEXO'.center(85))) #Titulo de la tabla
+    print('\n\t------------------------------------------------------------------------------------------')
     
+    #Encabezado de la tabla, con todo centrado
+    print ('\t|{:3}|{:14}|{:10}|{:16}|{:16}|{:6}|{:6}|{:10}|'.format('#'.center(3),'Grupo Etario'.center(14),'Cédula'.center(10),
+        'Primer Nombre'.center(16),'Primer Apellido'.center(16),'Sexo'.center(6),'Edad'.center(6), 'Tiempo'.center(10)))
+    print('\t------------------------------------------------------------------------------------------')
+    
+    #Contenido de la tabla, con todo centrado
+    for i in enumerate(options): #Para imprimir el resultado de cada diccionario
+        print('\t|{:3}|{:14}|{:10}|{:16}|{:16}|{:6}|{:6}|{:10}|'.format(str(i[0]+1).center(3),str(i[1]).center(14), str(options[i[1]]['id']).center(10), 
+            str(options[i[1]]['name']).center(16), str(options[i[1]]['first_last_name']).center(16), str(options[i[1]]['sex']).center(6), 
+            str(options[i[1]]['age']).center(6), str(options[i[1]]['total_time'].strftime('%H:%M:%S')).center(10)))
+        print('\t------------------------------------------------------------------------------------------')
 
     return context
