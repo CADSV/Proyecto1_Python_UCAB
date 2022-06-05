@@ -109,3 +109,23 @@ def winners_by_gender(context: dict) -> dict:
         print('\t------------------------------------------------------------------------------------------')
 
     return context
+
+
+#Funcion que imprime un histograma de la cantidad de participantes por grupo etario
+def histogram_by_age_group(context: dict) -> dict:
+
+    clear_screen()
+
+    juniors = context['juniors'] #Se obtiene toda la data de los participantes juniors
+    seniors = context['seniors'] #Se obtiene toda la data de los participantes seniors
+    masters = context['masters'] #Se obtiene toda la data de los participantes masters
+
+    options = {'Juniors': juniors, 'Seniors': seniors, 'Masters': masters} #Diccionario con los ganadores por grupo etario
+
+    print('\n{:120}'.format('HISTOGRAMA DE PARTICIPANTES POR GRUPO ETARIO\n'.center(120))) #Titulo de la tabla
+    
+    #Histograma de la cantidad de participantes por grupo etario
+    for i in enumerate(options): #Para mostrar grupo por grupo
+        print('{:7}({}):|{}'.format(str(i[1]), str(len(options[i[1]])), '*'*len(options[i[1]])))
+
+    return context

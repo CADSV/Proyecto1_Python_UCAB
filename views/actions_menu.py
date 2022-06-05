@@ -12,6 +12,7 @@ from views.print_tables import (
     participants_by_age_group_amount, #Funcion que imprime la tabla con la cantidad de participantes por grupo etario
     winners_by_age_group, #Funcion que imprime la tabla con los ganadores por grupo etario
     winners_by_gender, #Funcion que imprime la tabla con los ganadores por edad
+    histogram_by_age_group, #Funcion que imprime un histograma de la cantidad de participantes por grupo etario
 )
 
 from views.print_one_lines import(
@@ -75,10 +76,10 @@ def actions_menu(context: dict) -> dict:
                 elif (selected_option == 8):
                     absolute_winner(context)
 
-                # elif (context == 9):
-                #     histogram_by_age_group(context)
+                elif (selected_option == 9):
+                    histogram_by_age_group(context)
 
-                # elif (context == 10):
+                # elif (selected_option == 10):
                 #     average_time_by_age_group_and_gender(context)
 
                 elif (selected_option == 11):
