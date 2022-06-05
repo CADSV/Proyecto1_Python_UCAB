@@ -12,7 +12,7 @@ def create_menu(menu_options: list[str], title: str):
     print('\n')
 
     for i in range(len(menu_options)): #Imprimimos las opciones del menu
-        print(f'  {i+1}. {menu_options[i]}') #Imprimimos la opcion con su numero correspondiente
+        print(f'  {i+1}- {menu_options[i]}') #Imprimimos la opcion con su numero correspondiente
     print('\n\n')
 
 # Funcion encargada de limpiar la pantalla
