@@ -14,6 +14,7 @@ from views.print_tables import (
 
 from views.print_one_lines import(
     total_participants_amount, #Funcion que imprime el total de participantes
+    participants_by_gender_amount, #Funcion que imprime el total de participantes por sexo
 )
 
 
@@ -56,8 +57,8 @@ def actions_menu(context: dict) -> dict:
                 elif (selected_option == 3):
                     participants_by_age_group_amount(context)
 
-                # elif (selected_option == 4):
-                #     participants_by_gender_amount(context)
+                elif (selected_option == 4):
+                    participants_by_gender_amount(context)
                 
                 # elif (selected_option == 5):
                 #     winners_by_age_group(context)
