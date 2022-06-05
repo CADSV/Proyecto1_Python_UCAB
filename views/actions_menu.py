@@ -7,6 +7,8 @@ from views.utils import (
     create_menu, #Para crear el menu con sus opciones
 )
 
+from views.tables.list_all_participants import list_all_participants #Funcion que imprime la lista de participantes
+
 
 
 #Funcion encargada de mostrar el menu de acciones
@@ -39,8 +41,7 @@ def actions_menu(context: dict) -> dict:
                 selected_option = int(input('Por favor seleccione una opción: '))
 
                 if (selected_option == 1):
-                    # list_all_participants(context)
-                    print('1')
+                    list_all_participants(context)
                 
                 # elif (selected_option == 2):
                 #     total_participants_amount(context)
@@ -68,6 +69,7 @@ def actions_menu(context: dict) -> dict:
                 else:
                     raise InexistentMenuOptionError('¡ERORR! La opción seleccionada no existe. Por favor seleccione una opción válida :(')
 
+                input('Por favor presione cualquier tecla para continuar...') #Para poder visualizar con calma todas las opciones del menu
   
             except InexistentMenuOptionError as e:
                 print(f'\n\n{e}\n')
