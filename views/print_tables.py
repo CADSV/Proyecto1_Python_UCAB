@@ -6,7 +6,7 @@ def list_all_participants(context: dict) -> dict:
     
     clear_screen()
 
-    participants = context['participants']
+    participants = context['participants'] #Se obtiene toda la data de los participantes
 
     print('\n\t{:100}'.format('LISTA DE TODOS LOS PARTICIPANTES'.center(100))) #Titulo de la tabla
     print('\n\t---------------------------------------------------------------------------------------------------------')
@@ -21,7 +21,7 @@ def list_all_participants(context: dict) -> dict:
     for i, participant in enumerate(participants): #Para mostrar participante por participante
         print('\t|{:3}|{:10}|{:16}|{:12}|{:16}|{:16}|{:6}|{:6}|{:10}|'.format(str(i+1).center(3),str(participant['id']).center(10), str(participant['name']).center(16), str(participant['initial_name_letter']).center(12),
         str(participant['first_last_name']).center(16), str(participant['second_last_name']).center(16), str(participant['sex']).center(6), str(participant['age']).center(6), str(participant['total_time'].strftime('%H:%M:%S')).center(10)))
-    print('\t---------------------------------------------------------------------------------------------------------\n\n\t', end='')
+    print('\t---------------------------------------------------------------------------------------------------------\n\t', end='')
 
 
     return context

@@ -7,7 +7,13 @@ from views.utils import (
     create_menu, #Para crear el menu con sus opciones
 )
 
-from views.tables.list_all_participants import list_all_participants #Funcion que imprime la lista de participantes
+from views.print_tables import (
+    list_all_participants, #Funcion que imprime la lista de participantes
+)
+
+from views.print_one_lines import(
+    total_participants_amount,
+)
 
 
 
@@ -43,8 +49,8 @@ def actions_menu(context: dict) -> dict:
                 if (selected_option == 1):
                     list_all_participants(context)
                 
-                # elif (selected_option == 2):
-                #     total_participants_amount(context)
+                elif (selected_option == 2):
+                    total_participants_amount(context)
                 
                 # elif (selected_option == 3):
                 #     participants_by_age_group_amount(context)
@@ -69,7 +75,7 @@ def actions_menu(context: dict) -> dict:
                 else:
                     raise InexistentMenuOptionError('¡ERORR! La opción seleccionada no existe. Por favor seleccione una opción válida :(')
 
-                input('Por favor presione cualquier tecla para continuar...') #Para poder visualizar con calma todas las opciones del menu
+                input('\n\nPor favor presione cualquier tecla para continuar...') #Para poder visualizar con calma todas las opciones del menu
   
             except InexistentMenuOptionError as e:
                 print(f'\n\n{e}\n')
