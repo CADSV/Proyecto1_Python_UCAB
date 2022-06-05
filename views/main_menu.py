@@ -10,7 +10,7 @@ from views.file_menu import file_menu #Para llamar al menu de archivos
 
 # Funcion encargada de mostrar el menu principal
 def main():
-    context = None
+    context = {}
     selected_option = None
     main_menu_options = ['Archivo', 'Acciones', 'Salir del Programa']
 
