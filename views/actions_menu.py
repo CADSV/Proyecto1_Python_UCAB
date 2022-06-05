@@ -17,6 +17,7 @@ from views.print_tables import (
 from views.print_one_lines import(
     total_participants_amount, #Funcion que imprime el total de participantes
     participants_by_gender_amount, #Funcion que imprime el total de participantes por sexo
+    absolute_winner, #Funcion que imprime el ganador absoluto de la competencia
 )
 
 
@@ -71,8 +72,8 @@ def actions_menu(context: dict) -> dict:
                 # elif (selected_option == 7):
                 #     winners_by_gender_and_age_group(context)
 
-                # elif (selected_option == 8):
-                #     absolute_winner(context)
+                elif (selected_option == 8):
+                    absolute_winner(context)
 
                 # elif (context == 9):
                 #     histogram_by_age_group(context)

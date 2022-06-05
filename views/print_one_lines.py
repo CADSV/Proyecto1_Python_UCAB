@@ -29,3 +29,19 @@ def participants_by_gender_amount(context: dict) -> dict:
     print('\n\t{:100}'.format(('La cantidad total de participantes es de ' + str(len(women)) + ' mujeres y ' + str(len(men)) + ' hombres.' ).center(100))) 
 
     return context
+
+
+#Funcion que imprime el ganador absoluto de la competencia
+def absolute_winner(context: dict) -> dict:
+
+    clear_screen()
+
+    winner = context['participants'][0] #Se obtiene toda la data del ganador absoluto
+
+    print('\n\t{:100}'.format('GANADOR ABSOLUTO DE LA COMPETENCIA'.center(100))) #Titulo de la accion
+    print('\n\t---------------------------------------------------------------------------------------------------------')
+    #Cantidad total de participantes por sexo
+    print('\n\t{:100}'.format(('El Ganador absoluto de la competencia es ' + str(winner['name']).upper() + str(winner['first_last_name']).upper() + ' de ' 
+        + str(winner['age']) + ' años, gracias a su tiempazo de ' + str(winner['total_time'].strftime('%H:%M:%S'))).center(100))) 
+
+    return context
