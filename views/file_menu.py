@@ -3,7 +3,7 @@ from ast import Break
 from views.utils import (
     create_menu, #Para crear el menu
     clear_screen, #Para limpiar la pantalla
-    call_exit, #Para salir del programa
+    exit_system, #Para salir del programa
     )
 from exceptions.menu_exceptions import InexistentMenuOptionError #Excepcion de opcion invalida en el menu
 from data.load_txt_file import load_txt_file #Para cargar el archivo
@@ -12,13 +12,13 @@ from data.load_txt_file import load_txt_file #Para cargar el archivo
 # Funcion encargada de mostrar el menu de los archivos
 def file_menu(context: dict) -> dict:
     selected_option = None
-    main_menu_options = ['Cargar un archivo', 'Volver al Menú Principal', 'Salir del Programa'] #Lista de las opciones
+    file_menu_options = ['Cargar un archivo', 'Volver al Menú Principal', 'Salir del Programa'] #Lista de las opciones
 
     while(True):
         try: 
             clear_screen()
 
-            create_menu(main_menu_options, '            MENÚ DE ARCHIVOS') #Creamos el menu
+            create_menu(file_menu_options, '            MENÚ DE ARCHIVOS') #Creamos el menu
 
             selected_option = int(input('Por favor seleccione una opción: '))
 
@@ -30,7 +30,8 @@ def file_menu(context: dict) -> dict:
                 break
 
             elif (selected_option == 3):
-                call_exit()
+                exit_system()
+                
             else:
                 raise InexistentMenuOptionError('¡ERORR! La opción seleccionada no existe. Por favor seleccione una opción válida :(')
         
@@ -48,13 +49,13 @@ def file_menu(context: dict) -> dict:
 # Funcion encargada de mostrar el menu de cargar un archivo
 def load_file_menu(context: dict) -> dict:
     selected_option = None
-    main_menu_options = ['Cargar el archivo por defecto competencia.txt', 'Cargar un archivo propio', 'Volver al Menú de Archivos', 'Salir del Programa']
+    load_file_menu_options = ['Cargar el archivo por defecto competencia.txt', 'Cargar un archivo propio', 'Volver al Menú de Archivos', 'Salir del Programa']
 
     while(True):
         try: 
             clear_screen()
 
-            create_menu(main_menu_options, '         MENÚ DE CARGAR ARCHIVOS')
+            create_menu(load_file_menu_options, '         MENÚ DE CARGAR ARCHIVOS')
 
             selected_option = int(input('Por favor seleccione una opción: '))
 
@@ -68,7 +69,7 @@ def load_file_menu(context: dict) -> dict:
                 break
 
             elif (selected_option == 4):
-                call_exit()
+                exit_system()
             else:
                 raise InexistentMenuOptionError('¡ERORR! La opción seleccionada no existe. Por favor seleccione una opción válida :(')
         

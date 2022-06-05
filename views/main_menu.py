@@ -2,11 +2,11 @@
 from views.utils import (
     create_menu, #Para crear el menu
     clear_screen, #Para limpiar la pantalla
-    call_exit, #Para salir del programa
+    exit_system, #Para salir del programa
     )
 from exceptions.menu_exceptions import InexistentMenuOptionError #Excepcion de opcion invalida en el menu
 from views.file_menu import file_menu #Para llamar al menu de archivos
-# from views.actions import actions_menu
+from views.actions_menu import actions_menu
 
 # Funcion encargada de mostrar el menu principal
 def main():
@@ -28,14 +28,13 @@ def main():
 
             if (selected_option == 1):
                 file_menu(context)
-                print('111')
 
             elif (selected_option == 2):
-                # actions_menu(context)
-                print('222')
+                actions_menu(context)
 
             elif (selected_option == 3):
-                call_exit()
+                exit_system()
+
             else:
                 raise InexistentMenuOptionError('¡ERORR! La opción seleccionada no existe. Por favor seleccione una opción válida :(')
         

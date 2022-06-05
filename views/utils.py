@@ -21,7 +21,7 @@ def clear_screen():
 
 
 # Funcion para despedirse del usuario y salir del sistema
-def call_exit():
+def exit_system():
     clear_screen()
     print('\n')
     print('Espero que haya sido de su agrado, y no olvide armar su cubo rubik. Hasta pronto :)')
