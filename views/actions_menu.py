@@ -8,11 +8,12 @@ from views.utils import (
 )
 
 from views.print_tables import (
-    list_all_participants, #Funcion que imprime la lista de participantes
+    list_all_participants, #Funcion que imprime la tabla con la lista de participantes
+    participants_by_age_group_amount #Funcion que imprime la tabla con la cantidad de participantes por grupo etario
 )
 
 from views.print_one_lines import(
-    total_participants_amount,
+    total_participants_amount, #Funcion que imprime el total de participantes
 )
 
 
@@ -52,8 +53,8 @@ def actions_menu(context: dict) -> dict:
                 elif (selected_option == 2):
                     total_participants_amount(context)
                 
-                # elif (selected_option == 3):
-                #     participants_by_age_group_amount(context)
+                elif (selected_option == 3):
+                    participants_by_age_group_amount(context)
 
                 # elif (selected_option == 4):
                 #     participants_by_gender_amount(context)
